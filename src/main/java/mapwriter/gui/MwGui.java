@@ -510,40 +510,40 @@ public class MwGui extends GuiScreen {
     public void drawHelp() {
     	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
     	this.fontRendererObj.drawSplitString(
-    			"Keys:\n\n" + 
+    			"Teclas:\n\n" + 
     			"  Espacio\n" +
-    			"  Delete\n" +
+    			"  Suprimir\n" +
     			"  C\n" +
-    			"  Home\n" +
-    			"  End\n" +
+    			"  Inicio\n" +
+    			"  Fin\n" +
     			"  N\n" +
     			"  T\n" +
     			"  P\n" +
     			"  R\n\n" +
-    			"Left click drag or arrow keys pan the map.\n" +
-    			"Mouse wheel or Page Up/Down zooms map.\n" +
-    			"Right click map to create a new marker.\n" +
-    			"Left click drag a selected marker to move it.\n" +
-    			"Mouse wheel over selected marker to cycle colour.\n" + 
-    			"Mouse wheel over dimension or group box to cycle.\n",
+    			"Click izquierdo y flechas para desplazarte por el mapa.\n" +
+    			"Rueda del ratón o Re/Av Pág para cambiar el zoom.\n" +
+    			"Click derecho en el mapa para crear un nuevo Marker.\n" +
+    			"Click izquierdo sobre un Marker seleccionado para moverlo.\n" +
+    			"Rueda del ratón sobre un Marker seleccionado para rotar su color.\n" + 
+    			"Rueda del ratón sobre Grupo o Overlay para rotar estas\n",
     			15, 24, this.width - 30, 0xffffff);
     	this.fontRendererObj.drawSplitString(
-    			"| Next marker group\n" +
-    			"| Delete selected marker\n" +
-    			"| Cycle selected marker colour\n" +
-    			"| Centre map on player\n" +
-    			"| Centre map on selected marker\n" +
-    			"| Select next marker\n" +
-    			"| Teleport to cursor or selected marker\n" +
-    			"| Save PNG of visible map area\n" +
-    			"| Regenerate visible map area from region files\n",
+    			"| Grupo de Markers siguiente\n" +
+    			"| Eliminar el Marker seleccionado\n" +
+    			"| Cambiar color del Marker seleccionado\n" +
+    			"| Centrar el mapa en el jugador\n" +
+    			"| Centrar el mapa en el Marker seleccionado\n" +
+    			"| Seleccionar el Marker siguiente\n" +
+    			"| Teleportar al Marker seleccionado\n" +
+    			"| Guardar ScreenShot del area visible\n" +
+    			"| Regenerar el mapa desde archivos locales\n",
     			75, 42, this.width - 90, 0xffffff);
     }
     public void textoOpciones() {
     	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
     	this.fontRendererObj.drawSplitString(
     			"Click para mas",
-    			15, 24, this.width - 30, 0xffffff);
+    			this.optionsLabel.x + 3 , 24, this.width - 30, 0xffffff);
     }
     
     public void drawMouseOverHint(int x, int y, String title, int mX, int mY, int mZ) {
