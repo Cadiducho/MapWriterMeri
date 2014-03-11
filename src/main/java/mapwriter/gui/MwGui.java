@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import mapwriter.Mw;
 import mapwriter.MwUtil;
+import mapwriter.Tildes;
 import mapwriter.api.IMwDataProvider;
 import mapwriter.api.MwAPI;
 import mapwriter.forge.MwKeyHandler;
@@ -29,6 +30,7 @@ public class MwGui extends GuiScreen {
     private MapMode mapMode;
     private MapView mapView;
     private MapRenderer map;
+    private Tildes t;
     
 	private final static double PAN_FACTOR = 0.3D;
     
@@ -521,11 +523,11 @@ public class MwGui extends GuiScreen {
     			"  P\n" +
     			"  R\n\n" +
     			"Click izquierdo y flechas para desplazarte por el mapa.\n" +
-    			"Rueda del ratón o Re/Av Pág para cambiar el zoom.\n" +
+    			"Rueda del rat"+t.otilde+"n o Re/Av P"+t.atilde+"g para cambiar el zoom.\n" +
     			"Click derecho en el mapa para crear un nuevo Marker.\n" +
     			"Click izquierdo sobre un Marker seleccionado para moverlo.\n" +
-    			"Rueda del ratón sobre un Marker seleccionado para rotar su color.\n" + 
-    			"Rueda del ratón sobre Grupo o Overlay para rotar estas\n",
+    			"Rueda del rat"+t.otilde+"n sobre un Marker seleccionado para rotar su color.\n" + 
+    			"Rueda del rat"+t.otilde+"n sobre Grupo o Overlay para rotar estas\n",
     			15, 24, this.width - 30, 0xffffff);
     	this.fontRendererObj.drawSplitString(
     			"| Grupo de Markers siguiente\n" +
@@ -542,7 +544,7 @@ public class MwGui extends GuiScreen {
     public void textoOpciones() {
     	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
     	this.fontRendererObj.drawSplitString(
-    			"Click para mas",
+    			"Click para m"+t.atilde+"s",
     			this.optionsLabel.x + 3 , 24, this.width - 30, 0xffffff);
     }
     
@@ -621,9 +623,9 @@ public class MwGui extends GuiScreen {
         // draw labels
        this.helpLabel.draw(menuX, menuY, "[Ayuda]");
        this.optionsLabel.drawToRightOf(this.helpLabel, "[Opciones]");
-       String dimString = String.format("[Dimensión: %d]", this.mapView.getDimension());
+       String dimString = String.format("[Dimensi"+t.otilde+"n: %d]", this.mapView.getDimension());
        this.dimensionLabel.drawToRightOf(this.optionsLabel, dimString);
-       String groupString = String.format("[Group: %s]", this.mw.markerManager.getVisibleGroupName());
+       String groupString = String.format("[Grupo: %s]", this.mw.markerManager.getVisibleGroupName());
        this.groupLabel.drawToRightOf(this.dimensionLabel, groupString);
        String overlayString = String.format("[Overlay : %s]", MwAPI.getCurrentProviderName());
        this.overlayLabel.drawToRightOf(this.groupLabel, overlayString);
