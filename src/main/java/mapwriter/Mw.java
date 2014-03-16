@@ -737,8 +737,6 @@ public class Mw {
 			} else if (kb == MwKeyHandler.keyZoomOut) {
 				// zoom out
 				this.miniMap.view.adjustZoomLevel(1);
-			} else if (kb == MwKeyHandler.keyUndergroundMode) {
-				this.toggleUndergroundMode();
 			}
 		}
 	}

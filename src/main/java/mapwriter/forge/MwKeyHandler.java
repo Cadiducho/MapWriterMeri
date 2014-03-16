@@ -18,7 +18,6 @@ public class MwKeyHandler {
 	public static KeyBinding keyTeleport = new KeyBinding("key.mw_teleport", Keyboard.KEY_PERIOD, "Mapwriter");
 	public static KeyBinding keyZoomIn = new KeyBinding("key.mw_zoom_in", Keyboard.KEY_PRIOR, "Mapwriter");
 	public static KeyBinding keyZoomOut = new KeyBinding("key.mw_zoom_out", Keyboard.KEY_NEXT, "Mapwriter");
-	public static KeyBinding keyUndergroundMode = new KeyBinding("key.mw_underground_mode", Keyboard.KEY_U, "Mapwriter");
 	//public static KeyBinding keyQuickLargeMap = new KeyBinding("key.mw_quick_large_map", Keyboard.KEY_NONE);
 	
 	public MwKeyHandler(){
@@ -29,7 +28,6 @@ public class MwKeyHandler {
         ClientRegistry.registerKeyBinding(keyTeleport);
         ClientRegistry.registerKeyBinding(keyZoomIn);
         ClientRegistry.registerKeyBinding(keyZoomOut);
-        ClientRegistry.registerKeyBinding(keyUndergroundMode);
 	}
 
     @SubscribeEvent
@@ -62,9 +60,5 @@ public class MwKeyHandler {
             KeyBinding.setKeyBindState(keyZoomOut.getKeyCode(), false);
             Mw.instance.onKeyDown(keyZoomOut);
         }
-       /* if(keyUndergroundMode.getIsKeyPressed()){
-            KeyBinding.setKeyBindState(keyUndergroundMode.getKeyCode(), false);
-            Mw.instance.onKeyDown(keyUndergroundMode);
-        }*/
     }
 }

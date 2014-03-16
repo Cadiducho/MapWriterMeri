@@ -298,10 +298,7 @@ public class MwGui extends GuiScreen {
     		} else if (key == MwKeyHandler.keyNextGroup.getKeyCode()) {
     			this.mw.markerManager.nextGroup();
 	        	this.mw.markerManager.update();
-    		} else if (key == MwKeyHandler.keyUndergroundMode.getKeyCode()) {
-    			this.mw.toggleUndergroundMode();
-    			this.mapView.setUndergroundMode(this.mw.undergroundMode);
-			}
+    		}
 			break;
         }
     }
@@ -394,14 +391,14 @@ public class MwGui extends GuiScreen {
         			mz = this.mouseBlockZ;
         		}
         		this.mc.displayGuiScreen(
-        			new MwGuiMarkerDialog(
-        				this,
-        				this.mw.markerManager,
-        				"",
-        				group,
-        				mx, my, mz,
-        				this.mapView.getDimension()
-        			)
+        			new MwGuiMarkerDialog( 
+        					this,
+        					this.mw.markerManager,
+        					"nombre",
+        					group,
+        					mx, my, mz, 
+        					this.mapView.getDimension()
+        					)
         		);
     		}
     	}
@@ -509,7 +506,8 @@ public class MwGui extends GuiScreen {
          		s, this.width / 2, this.height - 18, 0xffffff);
     }
     
-    public void drawHelp() {
+    @SuppressWarnings("static-access")
+	public void drawHelp() {
     	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
     	this.fontRendererObj.drawSplitString(
     			"Teclas:\n\n" + 
@@ -541,7 +539,8 @@ public class MwGui extends GuiScreen {
     			"| Regenerar el mapa desde archivos locales\n",
     			75, 42, this.width - 90, 0xffffff);
     }
-    public void textoOpciones() {
+    @SuppressWarnings("static-access")
+	public void textoOpciones() {
     	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
     	this.fontRendererObj.drawSplitString(
     			"Click para m"+t.atilde+"s",
@@ -567,7 +566,8 @@ public class MwGui extends GuiScreen {
     }
     
     // also called every frame
-    public void drawScreen(int mouseX, int mouseY, float f) {
+    @SuppressWarnings("static-access")
+	public void drawScreen(int mouseX, int mouseY, float f) {
     	
         this.drawDefaultBackground();
         double xOffset = 0.0;

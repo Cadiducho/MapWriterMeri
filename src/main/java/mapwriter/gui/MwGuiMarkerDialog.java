@@ -19,7 +19,7 @@ public class MwGuiMarkerDialog extends MwGuiTextDialog {
     private int dimension = 0;
     
     public MwGuiMarkerDialog(GuiScreen parentScreen, MarkerManager markerManager, String markerName, String markerGroup, int x, int y, int z, int dimension) {
-        super(parentScreen, "Marker Name:", markerName, "marker must have a name");
+        super(parentScreen, "Nombre del Marker:", markerName, "El Marker tiene que tener un nombre");
 		this.markerManager = markerManager;
 		this.markerName = markerName;
 		this.markerGroup = markerGroup;
@@ -31,7 +31,7 @@ public class MwGuiMarkerDialog extends MwGuiTextDialog {
     }
     
     public MwGuiMarkerDialog(GuiScreen parentScreen, MarkerManager markerManager, Marker editingMarker) {
-        super(parentScreen, "Edit Marker Name:", editingMarker.name, "marker must have a name");
+        super(parentScreen, "Editar el nombre del Marker:", editingMarker.name, "El Marker tiene que tener un nombre");
         this.markerManager = markerManager;
 		this.editingMarker = editingMarker;
 		this.markerName = editingMarker.name;
@@ -49,9 +49,9 @@ public class MwGuiMarkerDialog extends MwGuiTextDialog {
 		case 0:
 			this.markerName = this.getInputAsString();
 			if (this.inputValid) {
-				this.title = "Marker Group:";
+				this.title = "Gurpo del Marker:";
 				this.setText(this.markerGroup);
-				this.error = "marker must have a group name";
+				this.error = "El Marker tiene que tener un grupo";
 				this.state++;
 			}
 			break;
@@ -60,7 +60,7 @@ public class MwGuiMarkerDialog extends MwGuiTextDialog {
 			if (this.inputValid) {
 				this.title = "Marker X:";
 				this.setText("" + this.markerX);
-				this.error = "invalid value";
+				this.error = "Coordenada erronea";
 				this.state++;
 			}
 			break;
@@ -69,7 +69,7 @@ public class MwGuiMarkerDialog extends MwGuiTextDialog {
 			if (this.inputValid) {
 				this.title = "Marker Y:";
 				this.setText("" + this.markerY);
-				this.error = "invalid value";
+				this.error = "Coordenada erronea";
 				this.state++;
 			}
 			break;
@@ -78,7 +78,7 @@ public class MwGuiMarkerDialog extends MwGuiTextDialog {
 			if (this.inputValid) {
 				this.title = "Marker Z:";
 				this.setText("" + this.markerZ);
-				this.error = "invalid value";
+				this.error = "Coordenada erronea";
 				this.state++;
 			}
 			break;
