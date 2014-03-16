@@ -6,6 +6,7 @@ import mapwriter.forge.MwKeyHandler;
 import mapwriter.gui.MwGui;
 import mapwriter.gui.MwGuiMarkerDialog;
 import mapwriter.map.*;
+import mapwriter.map.mapmode.MapMode;
 import mapwriter.overlay.OverlaySlime;
 import mapwriter.region.BlockColours;
 import mapwriter.region.RegionManager;
@@ -83,6 +84,8 @@ public class Mw {
 	// configuration files (global and world specific)
 	public MwConfig config;
 	public MwConfig worldConfig = null;
+	public MwGui mwg;
+	public MapMode mapmode;
 	
 	// directories
 	private final File configDir;
@@ -320,7 +323,7 @@ public class Mw {
 	public void toggleMarkerMode() {
 		this.markerManager.nextGroup();
 		this.markerManager.update();
-		this.mc.thePlayer.addChatMessage(new ChatComponentText("group " + this.markerManager.getVisibleGroupName() + " selected"));
+		this.mc.thePlayer.addChatMessage(new ChatComponentText("Grupo de Markers \"" + this.markerManager.getVisibleGroupName() + "\" seleccionado"));
 	}
 	
 	// cheap and lazy way to teleport...
@@ -713,10 +716,11 @@ public class Mw {
 				);
 			
 			} else if (kb == MwKeyHandler.keyNextGroup) {
-				// toggle marker mode
-				this.markerManager.nextGroup();
-				this.markerManager.update();
-				this.mc.thePlayer.addChatMessage(new ChatComponentText("group " + this.markerManager.getVisibleGroupName() + " selected"));
+				// Cambiar el grupo de Markers
+					this.markerManager.nextGroup();
+					this.markerManager.update();
+					this.mc.thePlayer.addChatMessage(new ChatComponentText("Grupo de Markers \"" + this.markerManager.getVisibleGroupName() + "\" seleccionado"));
+
 				
 			} else if (kb == MwKeyHandler.keyTeleport) {
 				// set or remove marker
