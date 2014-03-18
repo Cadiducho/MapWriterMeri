@@ -7,6 +7,7 @@ import mapwriter.MwUtil;
 import mapwriter.Tildes;
 import mapwriter.api.IMwDataProvider;
 import mapwriter.api.MwAPI;
+import mapwriter.forge.MwForge;
 import mapwriter.forge.MwKeyHandler;
 import mapwriter.map.MapRenderer;
 import mapwriter.map.MapView;
@@ -31,6 +32,7 @@ public class MwGui extends GuiScreen {
     private MapView mapView;
     private MapRenderer map;
     private Tildes t;
+    private MwForge mwf;
     
 	private final static double PAN_FACTOR = 0.3D;
     
@@ -58,6 +60,7 @@ public class MwGui extends GuiScreen {
     private Label dimensionLabel;
     private Label groupLabel;
     private Label overlayLabel;
+    private Label versionLabel;
     
     class Label {
     	int x = 0, y = 0, w = 1, h = 12;
@@ -96,6 +99,7 @@ public class MwGui extends GuiScreen {
     	this.dimensionLabel = new Label();
     	this.groupLabel = new Label();
     	this.overlayLabel = new Label();
+    	this.versionLabel = new Label();
     }
 
     public MwGui(Mw mw, int dim, int x, int z){
@@ -546,6 +550,12 @@ public class MwGui extends GuiScreen {
     			"Click para m"+t.atilde+"s",
     			this.optionsLabel.x + 3 , 24, this.width - 30, 0xffffff);
     }
+	public void checkVersion() {
+    	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
+    	this.fontRendererObj.drawSplitString(
+    			"Actualizado",
+    			this.versionLabel.x + 3 , 24, this.width - 30, 0xffffff);
+    } //No hay sistema de checkear version aun
     
     public void drawMouseOverHint(int x, int y, String title, int mX, int mY, int mZ) {
     	String desc = String.format("(%d, %d, %d)", mX, mY, mZ);
@@ -627,8 +637,10 @@ public class MwGui extends GuiScreen {
        this.dimensionLabel.drawToRightOf(this.optionsLabel, dimString);
        String groupString = String.format("[Grupo: %s]", this.mw.markerManager.getVisibleGroupName());
        this.groupLabel.drawToRightOf(this.dimensionLabel, groupString);
-       String overlayString = String.format("[Overlay : %s]", MwAPI.getCurrentProviderName());
+       String overlayString = String.format("[Overlay: %s]", MwAPI.getCurrentProviderName());
        this.overlayLabel.drawToRightOf(this.groupLabel, overlayString);
+       String versionString = String.format("[Version: %s]", mwf.VERSION);
+       this.versionLabel.drawToRightOf(this.overlayLabel, versionString);
         
         // help message on mouse over
 		if (this.helpLabel.posWithin(mouseX, mouseY)) {
@@ -636,6 +648,9 @@ public class MwGui extends GuiScreen {
 		}
 		if (this.optionsLabel.posWithin(mouseX, mouseY)) {
 		    this.textoOpciones();
+		}
+		if (this.versionLabel.posWithin(mouseX, mouseY)) {
+		    this.checkVersion();
 		}
         
         super.drawScreen(mouseX, mouseY, f);

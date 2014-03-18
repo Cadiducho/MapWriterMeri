@@ -77,6 +77,7 @@ public class Mw {
 	public Minecraft mc = null;
 	
 	// server information
+
 	public String worldName = "default";
 	private String serverName = "default";
 	private int serverPort = 0;

@@ -2,6 +2,7 @@ package mapwriter.forge;
 
 import java.net.InetSocketAddress;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,16 +22,18 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
 
-@Mod(modid="MapWriter", name="MapWriter", version="2.1.1")
+
+@Mod(modid="MapWriter", name="MapWriter", version=MwForge.VERSION)
 public class MwForge {
-	
 	@Instance("MapWriter")
 	public static MwForge instance;
+	public static final String VERSION = "0.4";
 	
 	@SidedProxy(clientSide="mapwriter.forge.ClientProxy", serverSide="mapwriter.forge.CommonProxy")
 	public static CommonProxy proxy;
 	
 	public static Logger logger = LogManager.getLogger("MapWriter");
+
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
