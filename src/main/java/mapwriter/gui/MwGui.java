@@ -1,6 +1,10 @@
 package mapwriter.gui;
 
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 
 import mapwriter.Mw;
 import mapwriter.MwUtil;
@@ -38,6 +42,8 @@ public class MwGui extends GuiScreen {
     
     private static final int menuY = 5;
     private static final int menuX = 5;
+    
+    
     
     private int mouseLeftHeld = 0;
     //private int mouseRightHeld = 0;
@@ -550,12 +556,25 @@ public class MwGui extends GuiScreen {
     			"Click para m"+t.atilde+"s",
     			this.optionsLabel.x + 3 , 24, this.width - 30, 0xffffff);
     }
-	public void checkVersion() {
+	/*public void checkVersion() {			NO TERMINADO
+		String versionnueva = "";
+    	String generate_URL = "http://dev.cadiducho.com/mapwriter/v.cadi";
+        String act = "Actualizado";
+        try {
+            URL data = new URL(generate_URL);
+            URLConnection yc = data.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+            while ((versionnueva = in.readLine()) != null) {
+                if (versionnueva.contains(MwForge.VERSION)) { act = "No actualizado"; }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     	drawRect(10, 20, this.width - 20, this.height - 30, 0x80000000);
     	this.fontRendererObj.drawSplitString(
-    			"Actualizado",
+    			act,
     			this.versionLabel.x + 3 , 24, this.width - 30, 0xffffff);
-    } //No hay sistema de checkear version aun
+    } */ 
     
     public void drawMouseOverHint(int x, int y, String title, int mX, int mY, int mZ) {
     	String desc = String.format("(%d, %d, %d)", mX, mY, mZ);
@@ -650,10 +669,11 @@ public class MwGui extends GuiScreen {
 		    this.textoOpciones();
 		}
 		if (this.versionLabel.posWithin(mouseX, mouseY)) {
-		    this.checkVersion();
+	//	    this.checkVersion();
 		}
         
         super.drawScreen(mouseX, mouseY, f);
     }
+    
 }
 
